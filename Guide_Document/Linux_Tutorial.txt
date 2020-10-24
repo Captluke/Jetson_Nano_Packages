@@ -1,0 +1,8 @@
+# To determine the installation path of the package
+type python3
+pip show tensorflow
+
+# Path
+export PATH=$PATH:/your/new/path --> To enable this permanently, one have to include this in bashrc script
+
+

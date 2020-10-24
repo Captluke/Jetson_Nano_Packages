@@ -1,0 +1,13 @@
+#------PENDING ITEM-----------
+what is docker ?
+what is virtual environment ?
+what is jetcam ?
+what is nvarguscamerasrc ?
+how to train model ?
+learn to build my first line following robot ?
+start my jupyter
+
+# ------To overcome this, let us do step by step ---
+1. Docker-I have understood it already
+
+

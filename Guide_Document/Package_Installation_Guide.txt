@@ -1,0 +1,7 @@
+## Install Barrier ##
+sudo apt install snapd
+sudo snap install barrier
+
+## Install OpenCv - Jetson Nano
+https://pysource.com/2019/08/26/install-opencv-4-1-on-nvidia-jetson-nano/
+

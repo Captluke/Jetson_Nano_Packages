@@ -1,0 +1,29 @@
+## Vision Works Directory 
+cd /usr/share
+ls visionworks*
+cd visionworks/sources
+
+## Copy over the whole files into desktop using below script
+./install-samples.sh ~
+cd ~
+cd VisionWorks-1.6-Samples
+make -j4
+cd bin/aarch64/linux/release
+
+## Run the example as follow
+./nvx_demo_feature_tracker
+
+### This Approach similarly apply to NVIDIA_CUDA-10.2_Samples
+copy the whole directory using script
+
+cd /usr/local/cuda/bin
+./cuda-install-samples-10.2.sh ~
+cd~
+cd NVIDIA_CUDA-10.2_Samples
+make -j4
+cd bin/aarch64/linux/release
+./demo
+
+make -j4
+sudo make install
+
