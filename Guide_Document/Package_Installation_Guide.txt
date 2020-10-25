@@ -6,6 +6,10 @@ sudo snap install barrier
 https://code.visualstudio.com/
 wget https://code.visualstudio.com/
 
+## To list the installed package and remove the package ##
+dpkg --list | grep nginx
+sudo apt-get --purge remove [package] - To remove the specific package
+
 To solve issues with Intellisense and AutoComplete for OPenCV.
 dpkg -L libopencv-python
 find path for /usr/lib/python3.6/dist-packages/cv2/python-3.6/
