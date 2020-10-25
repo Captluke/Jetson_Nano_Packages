@@ -5,3 +5,122 @@ sudo snap install barrier
 ## Install OpenCv - Jetson Nano
 https://pysource.com/2019/08/26/install-opencv-4-1-on-nvidia-jetson-nano/
 
+##Jetson Nano FIrst Thought##
+sudo apt-get update
+sudo apt-get full-upgrade
+
+##Uinstall Libre Office##
+sudo apt-get remove --purge libreoffice*
+sudo apt-get clean
+sudo apt-get autoremove
+
+##Change Speed and Clock##
+sudo jetson_clocks
+sudo nvpmodel -m 0
+echo "export PATH=$PATH:/$HOME/.local/bin" >> .bashrc
+echo "alias python=python3" >> .bashrc
+echo "alias pip=pip3" >> .bashrc
+source .bashrc
+
+##Install PIP##
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python3 get-pip.py
+rm get-pip.py
+
+##Add Swap Memory##
+sudo apt-get install zram-config
+sudo gedit /usr/bin/init-zram-swapping
+mem=$(((totalmem / ${NRDEVICES}) * 1024))
+https://pysource.com/2019/08/26/install-opencv-4-1-on-nvidia-jetson-nano/
+
+##Update the Package##
+sudo apt update
+sudo apt install -y build-essential cmake git libgtk2.0-dev pkg-config  libswscale-dev libtbb2 libtbb-dev
+sudo apt install -y python-dev python3-dev python-numpy python3-numpy
+sudo apt install -y curl
+sudo apt update
+sudo apt install -y build-essential cmake git libgtk2.0-dev pkg-config  libswscale-dev libtbb2 libtbb-dev
+sudo apt install -y python-dev python3-dev python-numpy python3-numpy
+sudo apt install -y curl
+
+##Create Virtual Env##
+sudo pip install virtualenv virtualenvwrapper
+nano ~/.bashrc
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source /usr/local/bin/virtualenvwrapper.sh
+source ~/.bashrc
+mkvirtualenv deep_learning -p python3
+workon deep_learning
+
+##Install OpenCV##
+git clone https://github.com/JetsonHacksNano/buildOpenCV
+https://thenewstack.io/tutorial-configure-nvidia-jetson-nano-as-an-ai-testbed/
+cd buildOpenCV
+./buildOpenCV.sh |& tee openCV_build.log
+
+https://github.com/JetsonHacksNano/buildOpenCV
+
+##Compiling and Installing Jetson Inference##
+git clone https://github.com/dusty-nv/jetson-inference
+cd jetson-inference
+git submodule update --init
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+
+##Install Nano Camera
+pip install nanocamera
+
+##Run the Inference##
+$ cd ~/jetson-inference/imagenet-camera
+$ nano imagenet-camera.cpp
+#define DEFAULT_CAMERA -1   -- change to 0 for webcam camera    
+// -1 for onboard camera, or change to index of /dev/video V4L2 camera (>=0)    
+$ cd ../build
+$ make
+$ sudo make install
+
+$ cd aarch64/bin/
+$ ./imagenet-camera
+
+https://www.pyimagesearch.com/2019/05/06/getting-started-with-the-nvidia-jetson-nano/
+
+##Interesting Project to start with Jetson Nano for Beginner###
+https://github.com/dusty-nv/jetson-inference/blob/master/docs/jetpack-setup-2.md
+https://github.com/NVIDIA-AI-IOT
+https://github.com/dusty-nv/jetson-inference/issues/532
+https://news.developer.nvidia.com/realtime-object-detection-in-10-lines-of-python-on-jetson-nano/
+https://pypi.org/project/nanocamera/
+https://www.youtube.com/watch?v=zsjcSapzUfU&t=38s&ab_channel=NVIDIADeveloper
+
+##How to Uinstall Package##
+https://www.activestate.com/resources/quick-reads/how-to-uninstall-python-packages/
+
+##Run Using Docker
+Mounted in our own directory
+$ cd ~/
+$ mkdir my-recognition-python
+$ cd my-recognition-python
+$ touch my-recognition.py
+$ chmod +x my-recognition.py
+$ wget https://github.com/dusty-nv/jetson-inference/raw/master/data/images/black_bear.jpg 
+$ wget https://github.com/dusty-nv/jetson-inference/raw/master/data/images/brown_bear.jpg
+$ wget https://github.com/dusty-nv/jetson-inference/raw/master/data/images/polar_bear.jpg 
+
+$ docker/run.sh --volume ~/my-recognition-python:/my-recognition-python   # mounted inside the container to /my-recognition-python 
+
+##Link system to Virtual Environment OpenCV##
+https://www.learnopencv.com/install-opencv3-on-ubuntu/
+workon jlukas_env
+
+find /usr/local/lib/ -type f -name "cv2*.so"
+############ For Python 2 ############
+cd ~/.virtualenvs/facecourse-py2/lib/python2.7/site-packages
+ln -s /usr/local/lib/python2.7/dist-packages/cv2.so cv2.so
+ 
+############ For Python 3 ############
+cd ~/.virtualenvs/facecourse-py3/lib/python3.6/site-packages
+ln -s /usr/local/lib/python3.6/dist-packages/cv2.cpython-36m-x86_64-linux-gnu.so cv2.so
