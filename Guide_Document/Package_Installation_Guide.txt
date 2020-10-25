@@ -2,6 +2,21 @@
 sudo apt install snapd
 sudo snap install barrier
 
+## Disable Password for Each sudo##
+sudo visudo
+add another new line
+pjm ALL=(ALL) NOPASSWD:ALL
+
+## Reformat SD Card Using Windows ##
+Window CMD
+diskpart
+list disk
+select disk (disk no)
+clean
+
+## Find version of JetPack ##
+sudo apt-cache show nvidia-jetpack
+
 ## Install OpenCv - Jetson Nano
 https://pysource.com/2019/08/26/install-opencv-4-1-on-nvidia-jetson-nano/
 
