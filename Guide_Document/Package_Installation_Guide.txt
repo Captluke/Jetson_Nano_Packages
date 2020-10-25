@@ -2,6 +2,17 @@
 sudo apt install snapd
 sudo snap install barrier
 
+## Install VS Code##
+https://code.visualstudio.com/
+wget https://code.visualstudio.com/
+
+To solve issues with Intellisense and AutoComplete for OPenCV.
+dpkg -L libopencv-python
+find path for /usr/lib/python3.6/dist-packages/cv2/python-3.6/
+Then open VS code --> Settings Json. Add Following Line
+"python.linting.pylintArgs": ["--generate-members", "--extension-pkg-whitelist=cv2"],
+"python.autoComplete.extraPaths": ["/usr/lib/python3.6/dist-packages/cv2/python-3.6"]
+
 ## Disable Password for Each sudo##
 sudo visudo
 add another new line
