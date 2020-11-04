@@ -6,6 +6,9 @@ sudo snap install barrier
 https://code.visualstudio.com/
 wget https://code.visualstudio.com/
 
+## To install VNC in Jetson Nano
+https://developer.nvidia.com/embedded/learn/tutorials/vnc-setup
+
 ## To list the installed package and remove the package ##
 dpkg --list | grep nginx
 sudo apt-get --purge remove [package] - To remove the specific package
@@ -64,10 +67,6 @@ mem=$(((totalmem / ${NRDEVICES}) * 1024))
 https://pysource.com/2019/08/26/install-opencv-4-1-on-nvidia-jetson-nano/
 
 ##Update the Package##
-sudo apt update
-sudo apt install -y build-essential cmake git libgtk2.0-dev pkg-config  libswscale-dev libtbb2 libtbb-dev
-sudo apt install -y python-dev python3-dev python-numpy python3-numpy
-sudo apt install -y curl
 sudo apt update
 sudo apt install -y build-essential cmake git libgtk2.0-dev pkg-config  libswscale-dev libtbb2 libtbb-dev
 sudo apt install -y python-dev python3-dev python-numpy python3-numpy
