@@ -90,6 +90,17 @@ cd buildOpenCV
 
 https://github.com/JetsonHacksNano/buildOpenCV
 
+##Install Jetson.GPIO
+Enable UART and I2C
+sudo /opt/nvidia/jetson-io/jetson-io.py
+Refer to this link for details
+https://learn.adafruit.com/circuitpython-libraries-on-linux-and-the-nvidia-jetson-nano/initial-setup
+https://pypi.org/project/Jetson.GPIO/
+
+#GPIO Samples Directory
+$ cd /usr/share/doc/jetson-gpio-common/samples
+$ sudo ./run_sample.sh simple_out.py
+
 ##Compiling and Installing Jetson Inference##
 git clone https://github.com/dusty-nv/jetson-inference
 cd jetson-inference
