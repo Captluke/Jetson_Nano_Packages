@@ -13,7 +13,7 @@ https://developer.nvidia.com/embedded/learn/tutorials/vnc-setup
 dpkg --list | grep nginx
 sudo apt-get --purge remove [package] - To remove the specific package
 
-To solve issues with Intellisense and AutoComplete for OPenCV.
+## To solve issues with Intellisense and AutoComplete for OPenCV.
 dpkg -L libopencv-python
 find path for /usr/lib/python3.6/dist-packages/cv2/python-3.6/
 Then open VS code --> Settings Json. Add Following Line
@@ -114,7 +114,10 @@ sudo make install
 ##Install Nano Camera
 pip install nanocamera
 
-##Run the Inference##
+## Modify Motor Jetbot
+https://www.hackster.io/gatoninja236/building-a-custom-jetbot-with-jetson-nano-8d41b6
+
+##Run the Hello AI Inference##
 $ cd ~/jetson-inference/imagenet-camera
 $ nano imagenet-camera.cpp
 #define DEFAULT_CAMERA -1   -- change to 0 for webcam camera    
@@ -125,7 +128,6 @@ $ sudo make install
 
 $ cd aarch64/bin/
 $ ./imagenet-camera
-
 https://www.pyimagesearch.com/2019/05/06/getting-started-with-the-nvidia-jetson-nano/
 
 ##Interesting Project to start with Jetson Nano for Beginner###
