@@ -2,6 +2,10 @@
 sudo apt install snapd
 sudo snap install barrier
 
+## List Down USB Bus connected to Jetson Nano
+lsusb
+https://www.jetsonhacks.com/2014/08/28/nvidia-jetson-tk1-arduino-uno/
+
 ## Install VS Code##
 https://code.visualstudio.com/
 wget https://code.visualstudio.com/
