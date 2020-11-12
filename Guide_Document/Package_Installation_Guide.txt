@@ -4,7 +4,12 @@ sudo snap install barrier
 
 ## List Down USB Bus connected to Jetson Nano
 lsusb
+
+## Install Arduino
 https://www.jetsonhacks.com/2014/08/28/nvidia-jetson-tk1-arduino-uno/
+
+## Connect Jetson Nano to Arduino
+https://www.seeedstudio.com/blog/2020/06/18/arduino-jeston-nano-xavier-nx-communication-using-python-via-usb-m/
 
 ## Install VS Code##
 https://code.visualstudio.com/
