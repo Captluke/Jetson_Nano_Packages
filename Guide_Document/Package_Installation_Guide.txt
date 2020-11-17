@@ -5,6 +5,11 @@ sudo snap install barrier
 ## List Down USB Bus connected to Jetson Nano
 lsusb
 
+## NVRM error in Jupyter 
+chromium-browser --no-sandbox
+jupyter lab 
+(it run smoothly
+
 ## Install Arduino
 https://www.jetsonhacks.com/2014/08/28/nvidia-jetson-tk1-arduino-uno/
 
