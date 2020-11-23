@@ -5,6 +5,10 @@ sudo snap install barrier
 ## List Down USB Bus connected to Jetson Nano
 lsusb
 
+## Upgrade Command 
+pip install ipython --upgrade
+pip install -U ipython
+
 ## To start the Jupyter
 jupyter notebook --no-browser --port=8080
 ssh -N -L 8080:localhost:8080 <remote_user>@<remote_host>
