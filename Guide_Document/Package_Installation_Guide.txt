@@ -10,6 +10,12 @@ jupyter notebook --no-browser --port=8080
 ssh -N -L 8080:localhost:8080 <remote_user>@<remote_host>
 https://github.com/NVIDIA-AI-IOT/jetbot/wiki/Create-SD-Card-Image-From-Scratch
 
+## To control Jupyter Remotely
+jupyter notebook --no-browser --port=8888  (Jetson Nano)
+ssh -N -f -L localhost:8888:localhost:8888 jlukas@10.60.212.197 (Power Shell)
+localhost:8888 (On Browser)
+https://amber-md.github.io/pytraj/latest/tutorials/remote_jupyter_notebook
+
 ## NVRM error in Jupyter 
 chromium-browser --no-sandbox
 jupyter lab 
