@@ -17,9 +17,16 @@ localhost:8888 (On Browser)
 https://amber-md.github.io/pytraj/latest/tutorials/remote_jupyter_notebook
 https://ljvmiranda921.github.io/notebook/2018/01/31/running-a-jupyter-notebook/
 
-## To control Jupyter Remotely -- IP Address
+## To control Jupyter Remotely and execute by JupyterLab -- IP Address
 https://bibsian.github.io/posts/jupyter-setup/
 https://jupyter-notebook.readthedocs.io/en/stable/public_server.html
+
+## First Install Jupyter Lab
+https://forums.developer.nvidia.com/t/jupyter-notebook-in-jetson-nano/72586/2
+https://www.tutorialspoint.com/jupyter/jupyterlab_installation_and_getting_started.htm
+
+## To run Jupyter Lab
+jupyter-lab
 
 ## NVRM error in Jupyter 
 chromium-browser --no-sandbox
