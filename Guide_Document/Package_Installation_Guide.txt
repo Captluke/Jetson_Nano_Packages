@@ -5,6 +5,9 @@ sudo snap install barrier
 ## List Down USB Bus connected to Jetson Nano
 lsusb
 
+## How to install nodejs for ipwidgest
+https://forums.developer.nvidia.com/t/how-to-install-node-js/84030
+
 ## Upgrade Command 
 pip install ipython --upgrade
 pip install -U ipython
