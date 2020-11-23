@@ -25,6 +25,9 @@ https://jupyter-notebook.readthedocs.io/en/stable/public_server.html
 https://forums.developer.nvidia.com/t/jupyter-notebook-in-jetson-nano/72586/2
 https://www.tutorialspoint.com/jupyter/jupyterlab_installation_and_getting_started.htm
 
+## Jupyter Widget
+pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install --user
+
 ## To run Jupyter Lab
 jupyter-lab
 
