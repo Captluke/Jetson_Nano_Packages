@@ -5,6 +5,11 @@ sudo snap install barrier
 ## List Down USB Bus connected to Jetson Nano
 lsusb
 
+## To start the Jupyter
+jupyter notebook --no-browser --port=8080
+ssh -N -L 8080:localhost:8080 <remote_user>@<remote_host>
+https://github.com/NVIDIA-AI-IOT/jetbot/wiki/Create-SD-Card-Image-From-Scratch
+
 ## NVRM error in Jupyter 
 chromium-browser --no-sandbox
 jupyter lab 
