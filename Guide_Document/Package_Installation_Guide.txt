@@ -163,7 +163,8 @@ pip install nanocamera
 
 ## Modify Motor Jetbot
 https://www.hackster.io/gatoninja236/building-a-custom-jetbot-with-jetson-nano-8d41b6
-
+https://medium.com/@anandmohan_8991/jetbot-using-l298n-pwm-motor-a6556ed358d6
+Jetbot Linux Path : jlukas@jlukas-desktop:/usr/local/lib/python3.6/dist-packages/jetbot-0.4.1-py3.6.egg/jetbot$ 
 ##Run the Hello AI Inference##
 $ cd ~/jetson-inference/imagenet-camera
 $ nano imagenet-camera.cpp
