@@ -1,0 +1,35 @@
+### Install Jetson.GPIO ###
+pip install Jetson.GPIO
+
+### Setting User Permissions ###
+sudo groupadd -f -r gpio
+sudo usermod -a -G gpio jlukas
+
+### Clone the Repo Add GPIO udev rules to the systems and reload the udev rules ###
+cd ~
+git clone https://github.com/NVIDIA/jetson-gpio.git
+sudo cp ~/jetson-gpio/lib/python/Jetson/GPIO/99-gpio.rules /etc/udev/rules.d
+sudo udevadm control --reload-rules && sudo udevadm trigger
+
+### Update Board and Python ###
+sudo apt update
+sudo apt upgrade
+sudo pip3 install --upgrade setuptools
+
+### Enable i2c permissions ###
+sudo usermod -aG i2c $USER
+
+### Enabling UART and I2C Jetson IO Pins ###
+sudo /opt/nvidia/jetson-io/jetson-io.py
+reboot
+ls /dev/i2c* /dev/spi* --> List of I2C devices
+sudo i2cdetect -r -y 0 --> Detect connected I2C devices
+
+## GPIO Example Directory ##
+cd /usr/share/doc/jetson-gpio-common/samples
+sudo ./run_samples.sh simple_out.py
+
+### Refer to this Link ###
+https://learn.adafruit.com/circuitpython-libraries-on-linux-and-the-nvidia-jetson-nano/initial-setup
+https://maker.pro/nvidia-jetson/tutorial/how-to-use-gpio-pins-on-jetson-nano-developer-kit
+https://pypi.org/project/Jetson.GPIO/

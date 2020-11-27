@@ -1,0 +1,23 @@
+### Install VS Code ###
+https://code.visualstudio.com/
+wget https://code.visualstudio.com/
+
+### To solve issues with Intellisense and AutoComplete for OPenCV. ###
+dpkg -L libopencv-python
+find path for /usr/lib/python3.6/dist-packages/cv2/python-3.6/
+Then open VS code --> Settings Json. Add Following Line
+"python.linting.pylintArgs": ["--generate-members", "--extension-pkg-whitelist=cv2"],
+"python.autoComplete.extraPaths": ["/usr/lib/python3.6/dist-packages/cv2/python-3.6"]
+
+### To install VNC in Jetson Nano ###
+https://developer.nvidia.com/embedded/learn/tutorials/vnc-setup
+
+### Install Barrier ###
+sudo apt install snapd
+sudo snap install barrier
+
+## Install Arduino
+https://www.jetsonhacks.com/2014/08/28/nvidia-jetson-tk1-arduino-uno/
+
+## Connect Jetson Nano to Arduino
+https://www.seeedstudio.com/blog/2020/06/18/arduino-jeston-nano-xavier-nx-communication-using-python-via-usb-m/

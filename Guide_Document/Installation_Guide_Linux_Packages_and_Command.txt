@@ -1,0 +1,47 @@
+
+## Create Virtual Env ##
+sudo pip install virtualenv virtualenvwrapper
+nano ~/.bashrc
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source /usr/local/bin/virtualenvwrapper.sh
+source ~/.bashrc
+mkvirtualenv deep_learning -p python3
+workon deep_learning
+
+## List Down USB Bus connected to Jetson Nano
+lsusb
+
+## To list the installed package and remove the package ##
+dpkg --list | grep nginx
+sudo apt-get --purge remove [package] - To remove the specific package
+
+## Disable Password for Each sudo ##
+sudo visudo
+add another new line
+pjm ALL=(ALL) NOPASSWD:ALL
+
+## Reformat SD Card Using Windows ##
+Window CMD
+diskpart
+list disk
+select disk (disk no)
+clean
+
+## Find version of JetPack ##
+sudo apt-cache show nvidia-jetpack
+
+## Uinstall Libre Office ##
+sudo apt-get remove --purge libreoffice*
+sudo apt-get clean
+sudo apt-get autoremove
+
+## NVRM error in Jupyter 
+chromium-browser --no-sandbox
+jupyter lab 
+(it run smoothly
+
+## To determine the installation path of the package ##
+type python3
+pip show tensorflow
+

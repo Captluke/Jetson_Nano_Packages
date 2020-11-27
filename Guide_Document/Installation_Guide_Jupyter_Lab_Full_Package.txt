@@ -1,0 +1,59 @@
+### Install node.js latest version ###
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+or
+
+wget https://nodejs.org/dist/v12.13.0/node-v12.13.0-linux-arm64.tar.xz
+tar -xJf node-v12.13.0-linux-arm64.tar.xz
+cd node-v12.13.0-linux-arm64
+sudo cp -R * /usr/local/
+node -v
+npm -v
+
+### Install Trailets ###
+sudo python3 -m pip install git+https://github.com/ipython/traitlets@dead2b8cdde5913572254cf6dc70b5a6065b86f8
+
+### Install Jupyter Lab ### 
+sudo apt install -y curl
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt install -y nodejs libffi-dev 
+sudo pip3 install jupyter jupyterlab
+sudo jupyter labextension install @jupyter-widgets/jupyterlab-manager
+jupyter lab --generate-config
+jupyter notebook password
+
+### Fix for permission Error ###
+sudo chown -R jetbot:jetbot ~/.local/share/
+
+### Install jupyter_clickable_image_widget ###
+sudo apt-get install libssl1.0-dev
+git clone https://github.com/jaybdub/jupyter_clickable_image_widget
+cd jupyter_clickable_image_widget
+git checkout tags/v0.1
+sudo pip3 install -e .
+sudo jupyter labextension install js
+sudo jupyter lab build
+
+### Install bokeh  ###
+sudo pip3 install bokeh
+sudo jupyter labextension install @bokeh/jupyter_bokeh
+
+### To control Jupyter Remotely and execute by Jupyter Lab -- IP Address
+https://bibsian.github.io/posts/jupyter-setup/
+https://jupyter-notebook.readthedocs.io/en/stable/public_server.html
+
+## To control Jupyter Notebook Remotely -- SSH tunnelling ###
+jupyter notebook --no-browser --port=8888  (Jetson Nano)
+ssh -N -f -L localhost:8888:localhost:8888 jlukas@10.60.212.197 (Power Shell)
+localhost:8888 (On Browser)
+https://amber-md.github.io/pytraj/latest/tutorials/remote_jupyter_notebook
+https://ljvmiranda921.github.io/notebook/2018/01/31/running-a-jupyter-notebook/
+
+## NVRM error in Jupyter 
+chromium-browser --no-sandbox
+jupyter lab 
+(it run smoothly
+
+## To run Jupyter Lab
+jupyter-lab

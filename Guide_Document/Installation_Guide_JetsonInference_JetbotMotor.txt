@@ -1,0 +1,59 @@
+####Compiling and Installing Jetson Inference####
+git clone https://github.com/dusty-nv/jetson-inference
+cd jetson-inference
+git submodule update --init
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+
+####Install Nano Camera###
+pip install nanocamera
+
+##Run the Hello AI Inference##
+$ cd ~/jetson-inference/imagenet-camera
+$ nano imagenet-camera.cpp
+#define DEFAULT_CAMERA -1   -- change to 0 for webcam camera    
+// -1 for onboard camera, or change to index of /dev/video V4L2 camera (>=0)    
+$ cd ../build
+$ make
+$ sudo make install
+$ cd aarch64/bin/
+$ ./imagenet-camera
+https://www.pyimagesearch.com/2019/05/06/getting-started-with-the-nvidia-jetson-nano/
+
+## Vision Works Directory 
+cd /usr/share
+ls visionworks*
+cd visionworks/sources
+
+#### Copy over the whole files into desktop using below script ####
+./install-samples.sh ~
+cd ~
+cd VisionWorks-1.6-Samples
+make -j4
+cd bin/aarch64/linux/release
+
+## Run the example as follow
+./nvx_demo_feature_tracker
+
+### This Approach similarly apply to NVIDIA_CUDA-10.2_Samples
+copy the whole directory using script
+
+cd /usr/local/cuda/bin
+./cuda-install-samples-10.2.sh ~
+cd~
+cd NVIDIA_CUDA-10.2_Samples
+make -j4
+cd bin/aarch64/linux/release
+./demo
+
+make -j4
+sudo make install
+
+
+#### Modify Motor Jetbot to work with L298dn ####
+https://www.hackster.io/gatoninja236/building-a-custom-jetbot-with-jetson-nano-8d41b6
+https://medium.com/@anandmohan_8991/jetbot-using-l298n-pwm-motor-a6556ed358d6
+Jetbot Linux Path : jlukas@jlukas-desktop:/usr/local/lib/python3.6/dist-packages/jetbot-0.4.1-py3.6.egg/jetbot$ 

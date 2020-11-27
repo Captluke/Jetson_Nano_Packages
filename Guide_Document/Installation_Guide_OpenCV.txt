@@ -1,0 +1,38 @@
+### Install OpenCV Step by Step ###
+sudo apt-get update
+sudo apt-get full-upgrade
+sudo apt install -y build-essential cmake git libgtk2.0-dev pkg-config  libswscale-dev libtbb2 libtbb-dev
+sudo apt install -y python-dev python3-dev python-numpy python3-numpy
+sudo apt install -y curl
+
+### Set the environment ###
+echo "export PATH=$PATH:/$HOME/.local/bin" >> .bashrc
+echo "alias python=python3" >> .bashrc
+echo "alias pip=pip3" >> .bashrc
+source .bashrc
+
+### Install PIP ###
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python3 get-pip.py
+rm get-pip.py
+
+### Change Speed and Clock ###
+sudo jetson_clocks
+sudo nvpmodel -m 0
+
+### Add Swap Memory ###
+sudo apt-get install zram-config
+sudo gedit /usr/bin/init-zram-swapping
+mem=$(((totalmem / ${NRDEVICES}) * 1024))  --> Add this line
+https://pysource.com/2019/08/26/install-opencv-4-1-on-nvidia-jetson-nano/ --> Refer to this link
+
+### Install OpenCV ###
+git clone https://github.com/JetsonHacksNano/buildOpenCV
+cd buildOpenCV
+./buildOpenCV.sh |& tee openCV_build.log
+https://thenewstack.io/tutorial-configure-nvidia-jetson-nano-as-an-ai-testbed/ ---> Refer to this link
+
+### Check CUDA Enable ###
+python3
+print (getbuildinformation())
+
