@@ -1,0 +1,42 @@
+### Install ds4drv ###
+sudo apt-get -y install jd
+sudo pip install ds4drv
+
+### Grant permission to ds4drv ###
+sudo wget https://raw.githubusercontent.com/chrippa/ds4drv/master/udev/50-ds4drv.rules -O /etc/udev/rules.d/50-ds4drv.rules
+sudo udevadm control –-reload-rules
+sudo udevadm trigger
+sudo vi /etc/rc.local ## Add /usr/local/bin/ds4drv & inside this path
+
+## Install This depedencies to install Pygame ##
+sudo apt install libsdl1.2-dev
+sudo apt-get install libfreetype6-dev
+sudo apt-get install python-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev libsdl1.2-dev libsmpeg-dev python-numpy subversion libportmidi-dev ffmpeg libswscale-dev libavformat-dev libavcodec-dev
+
+sudo pip3 install pygame
+
+## Visit this link ##
+https://www.pygame.org/wiki/CompileUbuntu --> For depedencies
+https://pygame-zero.readthedocs.io/en/1.0.2/installation.html?highlight=python 
+https://stackoverflow.com/questions/26855293/pygame-on-ubuntu-python-3
+https://pypi.org/project/pygame/1.9.3/ --> For actual package
+
+### Run ds4drv ###
+### Bluetooth and USB ###
+ds4drv --hidraw --led 00ff00
+
+### Bluetooth ###
+ds4drv
+
+### Start Controller In Pairing Mode ###
+1. Press and hold the Share button and then press and hold PS button until the light bar start blinking. It will go green after a few seconds.
+
+### Run ds4drv in background on startup once booted ###
+sudo vi /etc/rc.local
+paste this  line
+/home/pi/env/bin/ds4drv --led 00ff00 -- For Raspberry Pi
+usr/local/bin/ds4drv -- For Jetson Nano (use $type ds4drv to locate hash path)
+
+### Refer To This Link ###
+https://docs.donkeycar.com/parts/controllers/#ps4-controller
+https://pypi.org/project/ds4drv/
