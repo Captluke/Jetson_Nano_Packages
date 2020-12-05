@@ -20,6 +20,7 @@ curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt install -y nodejs libffi-dev 
 sudo pip3 install jupyter jupyterlab
 sudo jupyter labextension install @jupyter-widgets/jupyterlab-manager
+sudo jupyter labextension install @jupyterlab/statusbar
 jupyter lab --generate-config
 jupyter notebook password
 
