@@ -1,0 +1,27 @@
+## How to Flip the gstream camera for Jetson-Inference ##
+The reason we do this because IMX Camera is fliped 180 when run using Jetson-Inference.
+To do this, a small modifications have to be made into the gstCamera.cpp script
+
+## Script Location ##
+~/Desktop/My_Project/jetson-inference/utils/camera/gstCamera.cpp
+Open this script and modify the following line in arrow
+
+// on newer JetPack's, it's common for CSI camera to need flipped
+ // so here we reverse FLIP_NONE with FLIP_ROTATE_180
+if( mOptions.flipMethod == videoOptions::FLIP_NONE )
+	//mOptions.flipMethod = videoOptions::FLIP_ROTATE_180; 
+    mOptions.flipMethod = videoOptions::FLIP_NONE; <---- Add this
+else if( mOptions.flipMethod == videoOptions::FLIP_ROTATE_180 )
+    //mOptions.flipMethod = videoOptions::FLIP_NONE; 
+    mOptions.flipMethod = videoOptions::FLIP_ROTATE_180; <---- Add this
+	
+Save and quite then recompile again the script as follow
+cd build in jetson-inference
+sudo make install
+sudo ldconfig 
+
+DOne !!
+						
+
+						
+
