@@ -84,6 +84,7 @@ sudo apt-cache show nvidia-jetpack
 
 ## Install OpenCv - Jetson Nano
 https://pysource.com/2019/08/26/install-opencv-4-1-on-nvidia-jetson-nano/
+https://qengineering.eu/install-opencv-4.5-on-jetson-nano.html
 
 ##Jetson Nano FIrst Thought##
 sudo apt-get update
