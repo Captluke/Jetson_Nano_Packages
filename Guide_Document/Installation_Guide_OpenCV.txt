@@ -34,5 +34,6 @@ https://thenewstack.io/tutorial-configure-nvidia-jetson-nano-as-an-ai-testbed/ -
 
 ### Check CUDA Enable ###
 python3
-print (getbuildinformation())
+import cv2
+print (cv2.getBuildInformation())
 
