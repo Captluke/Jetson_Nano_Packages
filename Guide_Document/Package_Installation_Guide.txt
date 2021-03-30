@@ -215,3 +215,6 @@ ln -s /usr/local/lib/python2.7/dist-packages/cv2.so cv2.so
 ############ For Python 3 ############
 cd ~/.virtualenvs/facecourse-py3/lib/python3.6/site-packages
 ln -s /usr/local/lib/python3.6/dist-packages/cv2.cpython-36m-x86_64-linux-gnu.so cv2.so
+
+## Consist of command used to solve specific ubuntu problem ##
+Issues: a. Failed to load iwlwifi-8256-36- Error code- 2 -- https://www.cyberciti.biz/faq/intel-wifi-on-debian-linux-when-you-get-firmware-failed-to-load-iwlwifi-8265-36-error/
