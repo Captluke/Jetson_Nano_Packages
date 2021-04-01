@@ -12,7 +12,10 @@ $ sudo apt-get install dphys-swapfile
 $ sudo nano /etc/dphys-swapfile
 # reboot afterwards
 $ sudo reboot.
+
 https://stackoverflow.com/questions/54095699/install-gstreamer-support-for-opencv-python-package
+https://www.seeedstudio.com/blog/2020/06/01/install-opencv-on-jetson-nano-developer-kit-b01-m/
+
 # reveal the CUDA location
 $ sudo sh -c "echo '/usr/local/cuda/lib64' >> /etc/ld.so.conf.d/nvidia-tegra.conf"
 $ sudo ldconfig
