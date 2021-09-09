@@ -137,6 +137,9 @@ cd buildOpenCV
 
 https://github.com/JetsonHacksNano/buildOpenCV
 
+##Install OpenCv v4.5.0##
+https://github.com/AastaNV/JEP
+
 ##Install Jetson.GPIO
 Enable UART and I2C
 sudo /opt/nvidia/jetson-io/jetson-io.py
