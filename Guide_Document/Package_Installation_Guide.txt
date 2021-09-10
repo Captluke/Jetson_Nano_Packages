@@ -253,7 +253,8 @@ State : NotPresent
 8. To copy data from Windows to jetson use command as follow: 
    scp get-pip.py 192.168.8.121:/home/jlukas/Desktop/ 
    
-   
+   ## Logout Ubunt without Prompt ##
+   gnome-session-quit --no-prompt
 
 
 
