@@ -8,7 +8,6 @@ wget https://bootstrap.pypa.io/get-pip.py
 sudo python3 get-pip.py
 rm get-pip.py
 
-
 sudo pip3 install pip --upgrade
 sudo pip3 install opencv_contrib_python
 
