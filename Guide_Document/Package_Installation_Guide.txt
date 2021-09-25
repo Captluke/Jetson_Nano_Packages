@@ -8,7 +8,6 @@ lsusb
 ## To logout from Ubuntu
 gnome-session-quit --no-prompt
 
-
 ## How to install nodejs for ipwidgest
 https://forums.developer.nvidia.com/t/how-to-install-node-js/84030
 
