@@ -243,7 +243,7 @@ State : NotPresent
    Username : jlukas
    Password : JetsonNano password
 7. To copy data from Windows to jetson use command as follow: 
-   scp get-pip.py 192.168.8.121:/home/jlukas/Desktop/ 
+   scp get-pip.py <jetsonNano name>192.168.8.121:/home/jlukas/Desktop/ 
    
    
 
