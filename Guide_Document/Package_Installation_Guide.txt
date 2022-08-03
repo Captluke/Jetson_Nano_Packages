@@ -267,10 +267,10 @@ State : NotPresent
 1. sudo iw dev wlan0 set power_save off
 2. sudo apt update
 3. sudo apt install -y xrdp
-   Use this command if thinlinc_drive message appear in jetson : sudo umount thinclient_drives
-
 4. sudo reboot
 5. Set RDP setting as 
+6. Use this command if thinlinc_drive message appear in jetson : sudo umount thinclient_drives
+7. Set RDP setting as 
    Resolution : 1280 x 1024
    Color Depth : 16-bit
    Performance Settings : Modem (56 Kbps)
@@ -280,10 +280,11 @@ State : NotPresent
    Computer : 192.168.8.121
    Username : jlukas
    Password : JetsonNano password
-8. To copy data from Windows to jetson use command as follow: 
+
+## To copy data from Windows to jetson use command as follow: 
    scp get-pip.py 192.168.8.121:/home/jlukas/Desktop/ 
    
-   ## Logout Ubunt without Prompt ##
+## Logout Ubunt without Prompt ##
    gnome-session-quit --no-prompt
 
 
