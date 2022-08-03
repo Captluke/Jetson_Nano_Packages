@@ -7,8 +7,8 @@ sudo wget https://raw.githubusercontent.com/chrippa/ds4drv/master/udev/50-ds4drv
 sudo udevadm control –-reload-rules
 sudo udevadm trigger
 sudo vi /etc/rc.local ## Add /usr/local/bin/ds4drv & inside this path
-For /dev/uinput issues please add this command
-sudo udevadm control --reload-rules; sudo modprobe uinput
+Add this line for /dev/uinput issues:
+sudo udevadm control --reload-rules; sudo rmmod uinput; sudo modprobe uinput
 
 ## Install This depedencies to install Pygame ##
 sudo apt install libsdl1.2-dev

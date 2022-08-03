@@ -1,0 +1,9 @@
+## Install the Necessary Packages
+Link : https://forums.developer.nvidia.com/t/install-pygame-on-jetson-nano/83731/9
+
+sudo apt install libsdl1.2-dev
+sudo apt-get install python-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev libsdl1.2-dev libsmpeg-dev python-numpy subversion libportmidi-dev ffmpeg libswscale-dev libavformat-dev libavcodec-dev
+sudo apt-get install libfreetype6-dev
+sudo apt-get install python3-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev libsdl2-dev libsmpeg-dev python3-numpy subversion libportmidi-dev ffmpeg libswscale-dev libavformat-dev libavcodec-dev libfreetype6-dev
+python3 -m pip install pygame==2.0.0
+
