@@ -2,10 +2,33 @@
 sudo apt install snapd
 sudo snap install barrier
 
+## Install media pipe RPi4 ##
+sudo apt install ffmpeg python-opencv
+sudo apt install libxcb-shm0 libcdio-paranoia-dev libsdl2-2.0-0 libxv1  libtheora0 libva-drm2 libva-x11-2 libvdpau1 libharfbuzz0b libbluray2 libatlas-base-dev libhdf5-103 libgtk-3-0 libdc1394-22 libopenexr23
+sudo pip install mediapipe-rpi4
+
+## Install media pipe Jetson Nano ##  
+pip install setup
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python3 get-pip.py
+rm get-pip.py
+
+sudo pip3 install pip --upgrade
+sudo pip3 install opencv_contrib_python
+
+git clone https://github.com/PINTO0309/mediapipe-bin
+cd mediapipe-bin
+
+./v0.8.5/numpy119x/mediapipe-0.8.5_cuda102-cp36-cp36m-linux_aarch64_numpy119x_jetsonnano_L4T32.5.1_download.sh
+
+sudo pip3 install \
+numpy-1.19.4-cp36-none-manylinux2014_aarch64.whl \
+mediapipe-0.8.5_cuda102-cp36-none-linux_aarch64.whl
+
 ## List Down USB Bus connected to Jetson Nano
 lsusb
 
-## To logout from Ubuntu
+## Log out from Ubuntu immediately
 gnome-session-quit --no-prompt
 
 ## How to install nodejs for ipwidgest
@@ -141,6 +164,9 @@ cd buildOpenCV
 
 https://github.com/JetsonHacksNano/buildOpenCV
 
+##Install OpenCv v4.5.0##
+https://github.com/AastaNV/JEP
+
 ##Install Jetson.GPIO
 Enable UART and I2C
 sudo /opt/nvidia/jetson-io/jetson-io.py
@@ -221,3 +247,50 @@ ln -s /usr/local/lib/python3.6/dist-packages/cv2.cpython-36m-x86_64-linux-gnu.so
 
 ## Consist of command used to solve specific ubuntu problem ##
 Issues: a. Failed to load iwlwifi-8256-36- Error code- 2 -- https://www.cyberciti.biz/faq/intel-wifi-on-debian-linux-when-you-get-firmware-failed-to-load-iwlwifi-8265-36-error/
+=======
+
+## Transfer SSH Data from Jetson Nano to PC and PC to Jetson Nano ##
+Enable SSh and SSH Server on Windows 10
+1. Run Power Shell as an admin and copy this command : Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
+2. You should see something like this :
+Name : OpenSSH.Client~~~~0.0.1.0
+State : Installed
+
+Name : OpenSSH.Server~~~~0.0.1.0
+State : NotPresent
+3. Refer to this Link for details for the rest --> https://www.pugetsystems.com/labs/hpc/How-To-Use-SSH-Client-and-Server-on-Windows-10-1470/
+4. Refer to this link also --> https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse
+5. Refer to this link also --> https://www.hanselman.com/blog/how-to-ssh-into-a-windows-10-machine-from-linux-or-windows-or-anywhere
+6. To ssh into windows from linux : ssh lukas@192.168.8.123
+
+## Remote Desktop connection to Jetson Nano
+1. sudo iw dev wlan0 set power_save off
+2. sudo apt update
+3. sudo apt install -y xrdp
+4. sudo reboot
+5. Set RDP setting as 
+6. Use this command if thinlinc_drive message appear in jetson : sudo umount thinclient_drives
+7. Set RDP setting as 
+   Resolution : 1280 x 1024
+   Color Depth : 16-bit
+   Performance Settings : Modem (56 Kbps)
+   Deselect bitmap caching
+6. Make sure log out first from Jetson Nano
+7. Launch Remote Desktop and set as follow: 
+   Computer : 192.168.8.121
+   Username : jlukas
+   Password : JetsonNano password
+   
+## To copy data from Windows to jetson use command as follow: 
+   scp get-pip.py 192.168.8.121:/home/jlukas/Desktop/ 
+   
+## Logout Ubunt without Prompt ##
+   gnome-session-quit --no-prompt
+
+
+
+
+   
+
+
+
