@@ -1,0 +1,61 @@
+# This guide will show on how to install SITL in Jetson Nano ubuntu.
+# Before proceed, with this step please ensure to install all the required packages as in describe in "Installation of Pixhawk and Jetson Nano" packages
+# to ensure it mets all the dependecies and prevent conflict during ubuntu.sh -y installation.
+
+# Install below packages
+$ sudo apt-get update
+$ sudo apt-get upgrade
+$ sudo apt-get install git
+$ sudo pip install pexpect 
+$ git clone https://github.com/ArduPilot/ardupilot
+$ cd ardupilot
+$ git submodule update --init --recursive
+
+$ ./Tools/environment_install/install_prereqs_ubuntu.sh -y
+
+# if you have an issues with PyGame installation. Please refer to user guide "Install_PyGame_JetsonNano" or find forum title
+"install pygame on Jetson Nano from NVIDIA forum". Follow the guide there.
+
+# Then load the profiles
+$ . ~/.profile (Space in between . and ~ - reload this profile if sim_vehicle not found)
+
+# Start the simulator
+$ cd ardupilot/Arducopter
+
+# First run to write the virtual EEPROM. After default parameters are loaded then can start simulator normally.
+$ sim_vehicle.py -w 
+
+# Run this command to run the simulator
+$ sim_vehicle --console --map (To invoke default map and console)
+$ sim_vehicle --out=udpout:127.0.0.1:14551 --console --map (to connect into mission planner)
+$ sim_vehicle --out=/dev/ttyACM0 (to connect into Pixhawk via USB connection)
+
+# Run this command method to enable the MAVproxy console
+$ mavproxy.py --master=/dev/ttyACM0 --baudrate 57600 --out 192.168.137.1:14550 --aircraft MyCopter (Using Pixhawak USB and connect it into mission planner)
+$ mavproxy.py --master=/dev/ttyACM0 --baudrate 57600 --aircraft Mycopter                           (Using Pixhawk USB without port forwarding)
+$ mavproxy.py --master=/dev/ttyACM0 --baudrate 57600 --out=udp:10.60.216.198:14550                 (Using Pixhawk USB and port forward data from Mavproxy (Ground Station) to Copter (IP address). 10.60.** address is from ifconfig of the connected wifi.
+$ mavproxy.py --master=/dev/ttyACM0,921600 --out=udp:10.60.216.198:14550                           (To ignore the "baudrate" statememnt. This approach will work too)
+$ mavproxy.py --master=/dev/ttyACM0 --out=udp:10.60.216.198:14550                                  (Override default baudrate because we have defined this in SERIAL2 = 921600 earlier)
+
+$ mavproxy.py --master=/dev/ttyTHS1,921600                                                         (Using Uart Tx RX of Pixhawk without port forwarding)
+$ mavproxy.py --master=/dev/ttyTHS1,921600 --out=udp:10.60.216.198:14550                           (Using Uart Tx Rx of Pixhawk with port forwarding)
+
+NOTE : To run python script use port forwarded udp (see line 44 below to connect into MAVProxy as follow:
+connect_copter.py
+from dronekit import *
+''' Using SITL connection '''
+#connection_string = '127.0.0.1:14550'
+
+'''Using port forwarding from MavProxy'''
+#connection_string = '10.60.216.198:14550'
+
+'''Using UART serial Rx -> Tx and Tx -> Rx connection'''
+#connection_string = '/dev/ttyTHS1,921600'
+
+'''Using USB Connection'''
+#connection_string = '/dev/ttyACM0'
+
+vehicle = connect(connection_string,wait_ready = True)
+print("Virtual Copter is Ready !")
+
+Tips : Refer to page ardupilot.org/mavproxy/docs/gettingstarted/quickstart.html
