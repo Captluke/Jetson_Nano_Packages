@@ -280,7 +280,7 @@ State : NotPresent
    Computer : 192.168.8.121
    Username : jlukas
    Password : JetsonNano password
-
+   
 ## To copy data from Windows to jetson use command as follow: 
    scp get-pip.py 192.168.8.121:/home/jlukas/Desktop/ 
    
